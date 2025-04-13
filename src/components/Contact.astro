@@ -1,0 +1,93 @@
+<section class="bg-gray-900 text-white py-16 px-4">
+  <div class="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-8">
+    <!-- Información de contacto -->
+    <div>
+      <h2 class="text-4xl font-bold mb-4">Contact <span class="text-teal-400">Me</span></h2>
+      <p class="text-gray-400 mb-6">
+        I am a professional Web Designer. Feel free to reach out to me for any inquiries or collaborations.
+      </p>
+      <ul class="space-y-4">
+        <li class="flex items-center gap-4">
+          <i class="fa-solid fa-phone text-teal-400 text-xl"></i>
+          <span>+51 973 216 906</span>
+        </li>
+        <li class="flex items-center gap-4">
+          <i class="fa-solid fa-envelope text-teal-400 text-xl"></i>
+          <span>edwin_ramos2@usmp.pe</span>
+        </li>
+        <li class="flex items-center gap-4">
+          <i class="fa-brands fa-github text-teal-400 text-xl"></i>
+          <a href="https://linkedin.com" target="_blank" class="hover:underline">GitHub</a>
+        </li>
+        <li class="flex items-center gap-4">
+          <i class="fa-brands fa-linkedin text-teal-400 text-xl"></i>
+          <a href="https://linkedin.com" target="_blank" class="hover:underline">LinkedIn</a>
+        </li>
+      </ul>
+    </div>
+
+    <!-- Formulario de contacto -->
+    <form class="bg-gray-800 p-8 rounded-lg shadow-lg" action="/submit" method="POST">
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+        <div>
+          <label for="firstName" class="block text-sm font-medium text-gray-400">First Name</label>
+          <input
+            type="text"
+            id="firstName"
+            name="firstName"
+            required
+            class="mt-1 block w-full rounded-md bg-gray-700 border-gray-600 text-white focus:ring-teal-400 focus:border-teal-400"
+          />
+        </div>
+        <div>
+          <label for="lastName" class="block text-sm font-medium text-gray-400">Last Name</label>
+          <input
+            type="text"
+            id="lastName"
+            name="lastName"
+            required
+            class="mt-1 block w-full rounded-md bg-gray-700 border-gray-600 text-white focus:ring-teal-400 focus:border-teal-400"
+          />
+        </div>
+      </div>
+      <div class="mt-4">
+        <label for="email" class="block text-sm font-medium text-gray-400">Email</label>
+        <input
+          type="email"
+          id="email"
+          name="email"
+          required
+          class="mt-1 block w-full rounded-md bg-gray-700 border-gray-600 text-white focus:ring-teal-400 focus:border-teal-400"
+        />
+      </div>
+      <div class="mt-4">
+        <label for="lastName" class="block text-sm font-medium text-gray-400">Subject</label>
+        <input
+          type="text"
+          id="lastName"
+          name="lastName"
+          required
+          class="mt-1 block w-full rounded-md bg-gray-700 border-gray-600 text-white focus:ring-teal-400 focus:border-teal-400"
+        />
+      </div>
+      <div class="mt-4">
+        <label for="message" class="block text-sm font-medium text-gray-400">Message</label>
+        <textarea
+          id="message"
+          name="message"
+          rows="4"
+          required
+          class="mt-1 block w-full rounded-md bg-gray-700 border-gray-600 text-white focus:ring-teal-400 focus:border-teal-400"
+        ></textarea>
+      </div>
+      <div class="mt-6">
+        <button
+          type="submit"
+          class="w-full bg-teal-400 text-gray-900 font-bold py-2 px-4 rounded-md hover:bg-teal-500 transition"
+        >
+          Submit
+        </button>
+      </div>
+    </form>
+  </div>
+</section>
