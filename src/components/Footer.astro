@@ -7,35 +7,17 @@ const anho = new Date().getFullYear();
 ---
 
 <footer>
-    <section class="section-footer flex flex-row justify-between items-center relative">
+    <section class="bg-blue-600 flex flex-row justify-between items-center py-1">
       <div class="flex items-center ">
         <img src={logo.src} width="60" height="40" alt="logoDev" />
-        <span class="font-semibold">EduDev</span>
+        <span class="font-semibold text-white">EduDev</span>
       </div>
-      <div class="container-copy">
-          <p class="text-gray-400 font-semibold">© {anho} Edwin Ramos Cabrera</p>
+      <div class="flex flex-wrap justify-center items-center">
+          <p class="text-white font-semibold"> © {anho} - Edwin Ramos Cabrera</p>
       </div>
-      <div class="flex justify-end-safe items-end m-5">
+      <div class="flex justify-end-safe items-end pr-3">
         <img class="rounded-[20px] w-10 h-9" src={astro.src} alt="astro">
       </div>
     </section>
   </footer>
   
-  <style>
-    .section-footer {
-   
-      width: 100%;
-      background-color: #111111;
-      margin: 0 20px 0 20px;
-    }
-    
-    .container-copy {
-      position: relative;
-      color: #f6f6f9;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      width: 100%;
-      padding: 10px 0;
-    }
-  </style>

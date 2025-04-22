@@ -1,8 +1,8 @@
-<main class='min-h-screen flex flex-wrap justify-center text-white p-10'>
+<main class='flex flex-wrap justify-center text-white my-8 py-10'>
     <!-- Hero Section -->
-    <div class='w-full flex flex-wrap flex-row justify-center items-center'>
-        <div class='w-xl flex flex-col justify-center m-10'>
-            <h1 class='text-custom text-6xl font-bold mb-4'>Edwin Ramos</h1>
+    <div class='container w-7xl flex flex-row justify-center items-center gap-10'>
+        <div class='flex flex-col justify-center m-10'>
+            <h1 class='text-custom text-6xl font-extrabold mb-4'>Edwin Ramos</h1>
             <h2 class='text-4xl font-bold mb-2'>Desarrollador</h2>
             <h3 class='text-3xl font-bold mb-6'>Full Stack - Junior</h3>
             <p class='text-gray-300 mb-8'>
@@ -16,7 +16,7 @@
                 >
                     <a
                         target='_blank'
-                        class='cursor-pointer a-social hover:text-black'
+                        class='cursor-pointer a-social github'
                         href='https://github.com/EdwinRamosCabrera'
                         ><i
                             ><svg
@@ -41,7 +41,7 @@
                 >
                     <a
                         target='_blank'
-                        class='cursor-pointer a-social hover:text-blue-600'
+                        class='cursor-pointer a-social linkedin'
                         href='https://www.linkedin.com/in/edwin-michael-ramos-cabrera/'
                         ><i
                             ><svg
@@ -62,12 +62,12 @@
 
                 <div
                     title='Gmail'
-                    class='flex justify-center items-center undefined a-social'
+                    class='flex justify-center items-center undefined'
                     style='transform: none;'
                 >
                     <a
                         target='_blank'
-                        class='cursor-pointer  hover:text-red-600 flex items-center'
+                        class='cursor-pointer a-social gmail flex items-center'
                         href='mailto:edwin_ramos2@usmp.pe'
                         ><i
                             ><svg
@@ -90,20 +90,20 @@
             <div class='flex gap-4'>
                 <a
                     href='#contact'
-                    class='a-contact px-6 py-2 rounded-full hover:bg-purple-600 transition-colors'
+                    class='a-contact font-bold px-6 py-2 rounded-full transition-colors'
                 >
                     Contáctame
                 </a>
                 <a
                     href='#cv'
-                    class='a-contact px-6 py-2 rounded-full hover:bg-[#3d3d3d] transition-colors'
+                    class='a-contact font-bold px-6 py-2 rounded-full transition-colors'
                 >
                     Download CV
                 </a>
             </div>
         </div>
 
-        <div class="flex flex-wrap p-6">
+        <div class="flex flex-wrap m-10">
             <div class='w-80 h-80 bg-[#40E0D0] rounded-hexagon overflow-hidden'>
                 <img src="../icon.png" alt="Logo" class="w-full h-full object-cover" />
             </div>
@@ -119,9 +119,11 @@
         -webkit-background-clip: text;
         -webkit-text-fill-color: transparent;
     }
+
 	.rounded-hexagon {
 		clip-path: polygon(50% 0%, 100% 25%, 100% 75%, 50% 100%, 0% 75%, 0% 25%);
 	}
+
 	.a-social {
 		list-style: none;
 		display: flex;
@@ -129,19 +131,57 @@
 		align-items: center;
 		transition: color 0.2s ease-in-out;
 	}
-	.a-social i {
-		background-color: #089264;
+
+	.github i {
+		background-color: #089264; /* Cambia el color del icono */
 		border-radius: 10px;
 		font-size: 50px;
+        transition: background-color 0.3s ease, color 0.3s ease;
 	}
-    .a-contact {
+
+    .github i:hover {
+        color: black; /* Cambia el color del icono al pasar el mouse */
+        background-color: white; /* Cambia el fondo a blanco */   
+    }
+
+    .linkedin i {
+		background-color: #089264; /* Cambia el color del icono */
+		border-radius: 10px;
+		font-size: 50px;
+        transition: background-color 0.3s ease, color 0.3s ease;
+	}
+
+    .linkedin i:hover {
+        color: rgb(19, 65, 214); /* Cambia el color del icono al pasar el mouse */
+        background-color: white;  
+    }
+
+    .gmail i {
+		background-color: #089264; /* Cambia el color del icono */
+		border-radius: 10px;
+		font-size: 50px;
+        transition: background-color 0.3s ease, color 0.3s ease;
+	}
+
+    .gmail i:hover {
+        color: rgb(187, 13, 7); /* Cambia el color del icono al pasar el mouse */
+        background-color: white;  
+    }
+
+ 
+     .a-contact {
         background-color: #089264;    
-        font-weight: 700; 
-     }
-     .a-contact:hover {
-        color: #0A66C2; /* Cambia el color del texto */
-        background-color: white; /* Cambia el fondo a blanco */
+        font-size: large;
+        font-weight: bold;
+        color: white; 
         transition: background-color 0.3s ease, color 0.3s ease;
      }
 
+     .a-contact:hover {
+        color: #089264; 
+        font-weight: bold;
+        background-color: white;
+        scale: 1.05; /* Aumenta el tamaño al pasar el mouse */
+     } 
+    
 </style>

@@ -1,6 +1,6 @@
 ---
 import Layout from '../layouts/Layout.astro';
-import Nav from '../components/Nav.astro';
+import Header from '../components/Header.astro';
 import Main from '../components/Main.astro';
 import Footer from '../components/Footer.astro';
 import Contact from '../components/Contact.astro';
@@ -8,10 +8,29 @@ import '../styles/global.css';
 ---
 
 <Layout title='EduDev | Portfolio'>
-    <Nav /> 
+    <Header /> 
     <Main />
     <Contact />
 	<Footer />
 </Layout>
+
+<style>
+    @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300&display=swap');
+    * {
+        Margin: 0;
+        Padding: 0;
+        box-sizing: border-box;
+        font-family: 'Roboto', sans-serif;
+        scroll-behavior: smooth;
+    }
+    :root {
+        display: flex;
+        flex-direction: column;
+        min-height: 100vh;
+        --container-xl: 22rem;
+    }
+
+
+</style>
 
 
