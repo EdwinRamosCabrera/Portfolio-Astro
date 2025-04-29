@@ -4,31 +4,41 @@ import educationImage from '../assets/education.png';
 const study : {title: string, date: string, description: string}[] = [
     {
         title: 'Bachiller en Ingeniería de Computacion y Sistemas',
-        date: '2023',
+        date: '2019 - 2023',
         description: 'Universidad de San Martin de Porres'
     },
     {
         title: 'Bachiller en Ingenieria Eléctrica',
-        date: '2011',
+        date: '2005 - 2011',
         description: 'Universidad Nacional de San Martín de Porres'
     }
 ]
 ---
 
-<section class="w-full flex flex-row justify-center items-center text-white bg-[#130d0d]" id="about">
-    <div class="w-7xl mx-auto">
-        <h1 class="text-4xl font-bold mb-6">Education</h1>
-        {
-            study.map(({ title, date, description }) => (
-            <div class="flex flex-col justify-center items-start mb-6 border-2 rounded-lg p-6">
-                <h2 class="text-3xl font-bold mb-6">{title}</h2>
-                <p class="font-bold text-lg mb-2">{date}</p>
-                <p class="font-bold text-lg mb-2">{description}</p>
-            </div>
-        ))
-    }
+<section class="w-full flex flex-row justify-center items-center text-white bg-[#130d0d] py-20" id="about">
+    <div class="w-7xl mx-auto flex flex-row justify-center items-center gap-4">
+        <div class="mx-auto">
+            <h1 class="text-4xl font-bold py-6">Sobre mi</h1>
+            <p class="text-lg" >
+                Soy un desarrollador web apasionado y dedicado en la creación de sitios web visualmente impactantes y altamente funcionales, y también mediante el análisis de datos genero información valiosa para la correcta toma de decisiones.
+                Me considero una persona responsable, dinámica y creativa, con una gran capacidad de adaptación, aprendizaje continuo y entusiasmado en asumir nuevos retos y contribuir a proyectos innovadores.           
+            </p>
+            <p class="text-lg pb-6">
+                Mi formación también ha sido fundamental para sentar unas bases sólidas para mi carrera:   
+            </p>
+            {
+                study.map(({ title, date, description }) => (
+                <div class="flex flex-col justify-center items-start mb-6">
+                    <h2 class="text-2xl font-bold text-[#1CB698] mb-2">{title}</h2>
+                    <p class="text-lg">{date}</p>
+                    <p class="text-lg">{description}</p>
+                </div>
+            ))
+        }
+        </div>
+        <div class="flex justify-center items-center mx-10">
+            <img src={educationImage.src} alt="education" class="w-300 object-contain">
+        </div>
     </div>
-    <div class="w-96 h-96">
-        <img src={educationImage.src} alt="education" class="w-full h-full object-contain">
-    </div>
+
 </section>
