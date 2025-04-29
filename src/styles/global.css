@@ -7,6 +7,7 @@
     --font-poppins: 'Poppins', sans-serif;
     --bg-starts: linear-gradient(to right bottom, #101b27, #111c28, #131e28, #141f29, #162029);
     --bg-gradient-radial: linear-gradient(ellipse at bottom, #161f2b 0%, #090A0F 100%);
+    --bg-gradiente-navbar: radial-gradient(rgb(20, 25, 37), rgb(40, 48, 68) 70%);
 }
 
 @layer components {
@@ -23,6 +24,11 @@
         background-image: var(--bg-starts);
         background-size: cover;
         background-repeat: no-repeat;
+    }
+    .navbar {
+        background-image: var(--bg-gradiente-navbar);
+        border-width: 0.5px;
+        border-color: rgb(137, 158, 140);
     }
     .education {
         background-image: var(--bg-gradient-radial);

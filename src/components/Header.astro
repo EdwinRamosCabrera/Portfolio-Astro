@@ -2,43 +2,176 @@
 import logo from '../assets/logo.svg';
 
 /** Menu items */
-const links : {label: string, href: string}[] = [
-  { label: 'Home', href: '#' },
-//{ label: 'About', href: '/about/' },
- // { label: 'Experience', href: '#' },
-  { label: 'Education', href: '/education/' },
-  { label: 'Projects', href: '/project/' },
-  { label: 'Skills', href: '/skills/' },
-//  { label: 'Certifications', href: '#' },
-  { label: 'Contact', href: '/contact/' }
+const links: { label: string; href: string }[] = [
+	{ label: 'Home', href: '#home' },
+	{ label: 'About', href: '#about' },
+	{ label: 'Experience', href: '#experience' },
+	{ label: 'Projects', href: '#project' },
+	{ label: 'Skills', href: '#skills' },
+	{ label: 'Contact', href: '#contact' },
 ];
 
+// Obtener la ruta actual
+const currentPath = Astro.url.pathname;
 ---
-<nav class="fixed left-0 right-0 top-0 min-w-screen mx-auto flex justify-center items-center bg-[#0f1a22] text-white text-lg font-semibold py-2 z-30" >
-  <div class="w-6xl flex flex-wrap justify-between items-center mx-auto">
-    <div class="flex items-center ">
-      <img src={logo.src} width="70" height="30" alt="logoDev"/>
-      <span class="font-semibold">EduDev</span>
-    </div>
-    
-    <div class="bg-[#130d0d] rounded-full px-8 py-2">
-      <ul class="font-poppins flex gap-6">
-           {
-           links.map(({ label, href }) => (
-            <li>
-                <a class="hover:text-teal-300" href={href}>{label}</a>
-            </li>
-            ))
-            }
-      </ul>
-    </div>
 
-    <div class="text-purple-500 mr-4">
-      <button class="dark-mode-toggle">
-        <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M20.354 15.354A9 9 0 018.646 3.646 9.003 9.003 0 0012 21a9.003 9.003 0 008.354-5.646z" />
-        </svg>
-      </button>
-    </div>
-  </div>    
+<nav
+	class='fixed left-0 right-0 top-0 min-w-screen mx-auto flex justify-center items-center bg-gradient-to-r from-[#1a1b26] to-[#0d0e1a] text-white text-lg font-semibold py-3 z-30 backdrop-blur-sm bg-opacity-90'
+>
+	<div class='w-6xl flex flex-wrap justify-between items-center mx-auto px-4'>
+		<div class='flex items-center'>
+			<img src={logo.src} width='70' height='30' alt='logoDev' />
+			<span class='font-bold'>EduDev</span>
+		</div>
+
+		<div class='navbar rounded-full px-6 py-3'>
+			<ul class='font-poppins flex gap-6'>
+				{
+					links.map(({ label, href }) => (
+						<li>
+							<a
+								href={href}
+								data-section={href.replace('#', '')}
+								class:list={[
+									'px-4 py-2 rounded-full transition-colors duration-300',
+									href === '#home'
+										? 'bg-[#06c49e] text-white'
+										: 'text-gray-400 hover:text-white',
+								]}
+							>
+								{label}
+							</a>
+						</li>
+					))
+				}
+			</ul>
+		</div>
+
+		<div
+			class='text-gray-400 hover:text-white transition-colors duration-300 mr-4'
+		>
+			<button class='dark-mode-toggle'>
+				<svg
+					xmlns='http://www.w3.org/2000/svg'
+					class='h-6 w-6'
+					fill='none'
+					viewBox='0 0 24 24'
+					stroke='currentColor'
+				>
+					<path
+						stroke-linecap='round'
+						stroke-linejoin='round'
+						stroke-width='2'
+						d='M20.354 15.354A9 9 0 018.646 3.646 9.003 9.003 0 0012 21a9.003 9.003 0 008.354-5.646z'
+					></path>
+				</svg>
+			</button>
+		</div>
+	</div>
 </nav>
+
+<script>
+	document.addEventListener('DOMContentLoaded', () => {
+		const navLinks = document.querySelectorAll('nav a[href^="#"]');
+		const sections = document.querySelectorAll('section[id]');
+		let isScrolling = false;
+
+		// Función para remover la clase activa de todos los links
+		const removeActiveClass = () => {
+			navLinks.forEach((link) => {
+				link.classList.remove('bg-[#06c49e]', 'text-white');
+				link.classList.add('text-gray-400');
+			});
+		};
+
+		// Función para activar un link específico
+		const activateLink = (href: string) => {
+			const link = document.querySelector(`nav a[href="${href}"]`);
+			if (link) {
+				removeActiveClass();
+				link.classList.remove('text-gray-400');
+				link.classList.add('bg-[#06c49e]', 'text-white');
+			}
+		};
+
+		// Función para el scroll suave y manejo del estado activo
+		navLinks.forEach((link) => {
+			link.addEventListener('click', (e) => {
+				e.preventDefault();
+				const href = link.getAttribute('href') || '';
+				activateLink(href);
+				isScrolling = true;
+
+				const targetId = href.substring(1);
+				const targetSection = document.getElementById(targetId);
+				if (targetSection) {
+					targetSection.scrollIntoView({ behavior: 'smooth' });
+					// Restaurar el estado de scroll después de la animación
+					setTimeout(() => {
+						isScrolling = false;
+					}, 1000);
+				}
+			});
+		});
+
+		// Función para actualizar el ítem activo basado en la sección visible
+		const updateActiveLink = () => {
+			if (isScrolling) return;
+
+			const scrollPosition = window.scrollY;
+			const windowHeight = window.innerHeight;
+			const documentHeight = document.documentElement.scrollHeight;
+
+			// Verificar si estamos al final de la página
+			const isBottom = scrollPosition + windowHeight >= documentHeight - 50;
+
+			if (isBottom) {
+				// Si estamos al final, activar el último link (Contact)
+				activateLink('#contact');
+				return;
+			}
+
+			// Para las demás secciones
+			let currentSection = '';
+			sections.forEach((section) => {
+				const sectionTop = (section as HTMLElement).offsetTop - 100;
+				const sectionHeight = (section as HTMLElement).offsetHeight;
+
+				if (
+					scrollPosition >= sectionTop &&
+					scrollPosition < sectionTop + sectionHeight
+				) {
+					currentSection = section.id;
+				}
+			});
+
+			if (currentSection) {
+				activateLink(`#${currentSection}`);
+			} else if (scrollPosition < 100) {
+				// Si estamos al inicio de la página, activar Home
+				activateLink('#home');
+			}
+		};
+
+		// Escuchar el evento scroll con throttling para mejor rendimiento
+		let scrollTimeout: number | null = null;
+		window.addEventListener('scroll', () => {
+			if (scrollTimeout) {
+				window.cancelAnimationFrame(scrollTimeout);
+			}
+			scrollTimeout = window.requestAnimationFrame(() => {
+				updateActiveLink();
+			});
+		});
+
+		// Asegurarse de que Home esté activo al cargar la página
+		activateLink('#home');
+	});
+</script>
+
+<style>
+	.navbar {
+		background: rgba(30, 31, 55, 0.5);
+		backdrop-filter: blur(10px);
+	}
+</style>
