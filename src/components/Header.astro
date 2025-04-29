@@ -14,14 +14,14 @@ const links : {label: string, href: string}[] = [
 ];
 
 ---
-<nav class="fixed left-0 right-0 top-0 min-w-screen m-auto flex justify-center items-center bg-gray-800 text-white text-lg font-semibold p-3 z-30" >
+<nav class="fixed left-0 right-0 top-0 min-w-screen m-auto flex justify-center items-center bg-transparent text-white text-lg font-semibold p-3 z-30" >
   <div class="w-6xl flex flex-wrap justify-between items-center mx-auto">
     <div class="flex items-center ">
-      <img src={logo.src} width="70" height="30" alt="logoDev" />
+      <img src={logo.src} width="70" height="30" alt="logoDev"/>
       <span class="font-semibold">EduDev</span>
     </div>
     
-    <div class="bg-[#1d1414] rounded-full px-8 py-2">
+    <div class="bg-[#130d0d] rounded-full px-8 py-2">
       <ul class="font-poppins flex gap-6">
            {
            links.map(({ label, href }) => (
@@ -40,8 +40,5 @@ const links : {label: string, href: string}[] = [
         </svg>
       </button>
     </div>
-  </div>
-    
-  
-    
-  </nav>
+  </div>    
+</nav>

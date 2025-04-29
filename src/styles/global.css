@@ -2,18 +2,12 @@
 @import "tailwindcss";
 
 @theme {
-    --font-ubuntu: 'Ubuntu', sans-serif;
-    --font-domine: 'Domine', serif;
     --font-ledger: 'Ledger', serif;
-    --font-besley: 'Besley', serif;
-    --font-alike: 'Alike', serif;
     --font-platypi: 'Platypi', serif;
-    --font-facultyglyphic: 'Faculty Glyphic', serif;
-    --font-creteround: 'Crete Round', serif;
-    --font-dmseriftext: 'DM Serif Text', serif;
-    --font-merriweather: 'Merriweather', serif;
     --font-poppins: 'Poppins', sans-serif;
-    --font-roboto: 'Roboto', sans-serif;
+    --bg-gradient: linear-gradient(to right bottom, #101b27, #111c28, #131e28, #141f29, #162029);
+    --bg-gradient-radial: linear-gradient(ellipse at bottom, #161f2b 0%, #090A0F 100%);
+    
 }
 
 @layer components {
@@ -25,6 +19,17 @@
     }
     p {
         font-family: var(--font-poppins);
+    }
+    main {
+        background-image: var(--bg-gradient);
+        background-size: cover;
+        background-repeat: no-repeat;}
+
+    .education {
+        background-image: var(--bg-gradient-radial);
+        background-size: cover;
+        background-repeat: no-repeat;
+        overflow: hidden;
     }
 }
 

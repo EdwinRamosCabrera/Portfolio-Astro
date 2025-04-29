@@ -1,0 +1,99 @@
+---
+// Importar imágenes de proyectos
+import ecommerceStripe from '../assets/projects/ecommerce-stripe.webp';
+import nextanime from '../assets/projects/nextanime.webp';
+import gym from '../assets/projects/gym.webp';
+
+// Importar imágenes de tecnologías
+import typescript from '../assets/tecnologies/typescript.svg';
+import tailwind from '../assets/tecnologies/tailwind.svg';
+import html from '../assets/tecnologies/html.svg';
+import css from '../assets/tecnologies/css.svg';
+import react from '../assets/tecnologies/reactjs.svg';
+import spring from '../assets/tecnologies/spring.svg';
+
+const projects = [
+    {
+        title: 'Ecommerce Stripe',
+        description: 'Proyecto FullStack de un ecommerce con pasarela de pagos stripe integrada, destalles de el product etc.',
+        image: ecommerceStripe,
+        tecnologies: [
+            {
+                name: 'Typescript',
+                image: typescript
+            },
+            {
+                name: 'TailwindCSS',
+                image: tailwind
+            }
+        ]
+    },
+    {
+        title: 'NextAnime',
+        description: 'Plataforma de anime, que muestra los animes en tendencia, más valorados, estadísticas.',
+        image: nextanime,
+        tecnologies: [
+            {
+                name: 'HTML',
+                image: html
+            },
+            {
+                name: 'TailwindCSS',
+                image: tailwind
+            },
+            {
+                name: 'CSS',
+                image: css
+            }
+        ]
+    },
+    {
+        title: 'Gym',
+        description: 'Landing page de una gym por ahora es una landing todavia está en desarrollo la idea es que los usuarios puedan comprar',
+        image: gym,
+        tecnologies: [
+            {
+                name: 'React',
+                image: react
+            },
+            {
+                name: 'TailwindCSS',
+                image: tailwind
+            },
+            {
+                name: 'Spring',
+                image: spring
+            }
+        ]
+    }
+]
+---
+
+<section class="w-full flex flex-col justify-center items-center text-white mx-auto">
+    <div class="w-7xl">
+        <h1 class="text-4xl font-bold mb-6">Proyectos</h1>
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+            {
+                projects.map((project) => (
+                    <div class="flex flex-col justify-center items-center border-2 rounded-lg p-6 gap-4 hover:scale-102 transition-all duration-300">
+                        <img src={project.image.src} alt={project.title} class="w-full h-48 object-cover rounded-lg" />
+                        <h2 class="text-2xl font-bold">{project.title}</h2>
+                        <p class="text-center text-gray-300">{project.description}</p>
+                        <h3 class="text-xl font-semibold">Tecnologías usadas</h3>
+                        <div class="flex flex-wrap gap-4 justify-center mt-4">
+                            {
+                                project.tecnologies.map((tecnology) => (
+                                    <div class="flex flex-col items-center gap-2">
+                                        <img src={tecnology.image.src} alt={tecnology.name} class="w-12 h-12" />
+                                        <p class="text-sm">{tecnology.name}</p>
+                                    </div>
+                                ))
+                            }
+                        </div>
+                        <button class="bg-green-500 text-white px-6 py-3 rounded-lg font-semibold hover:bg-green-600 transition-colors duration-300"><a href="#">Ver Proyecto</a></button>
+                    </div>
+                ))
+            }
+        </div>
+    </div>
+</section>

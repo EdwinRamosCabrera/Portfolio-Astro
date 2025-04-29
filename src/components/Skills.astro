@@ -1,0 +1,128 @@
+---
+import html from '../assets/tecnologies/html.svg';
+import css from '../assets/tecnologies/css.svg';
+import javascript from '../assets/tecnologies/javascript.svg';
+import typescript from '../assets/tecnologies/typescript.svg';
+import react from '../assets/tecnologies/reactjs.svg';
+import tailwind from '../assets/tecnologies/tailwind.svg';
+import astro from '../assets/tecnologies/astro.svg';
+import bootstrap from '../assets/tecnologies/bootstrap.png';
+import figma from '../assets/tecnologies/figma.svg';
+import spring from '../assets/tecnologies/spring.svg';
+import netcore from '../assets/tecnologies/netcore.png';
+import java from '../assets/tecnologies/java.png';
+import python from '../assets/tecnologies/python.webp';
+import mysql from '../assets/tecnologies/mysql.png';
+import sqlserver from '../assets/tecnologies/sql-server.png';
+import postgresql from '../assets/tecnologies/postgresql.svg';
+import vscode from '../assets/tecnologies/vscode.svg';
+import powerbi from '../assets/tecnologies/power-bi.png';
+import git from '../assets/tecnologies/git.svg';
+import github from '../assets/tecnologies/github-logo.png';
+import intellij from '../assets/tecnologies/intellij.svg';
+import windsurf from '../assets/tecnologies/windsurf.png';
+
+const skills = [
+    {
+        name: 'HTML',
+        image: html
+    },
+    {
+        name: 'CSS',
+        image: css
+    },
+    {
+        name: 'JavaScript',
+        image: javascript
+    },
+    {
+        name: 'Bootstrap',
+        image: bootstrap
+    },
+    {
+        name: 'TailwindCSS',
+        image: tailwind
+    },
+    {
+        name: 'Typescript',
+        image: typescript
+    },
+    {
+        name: 'React',
+        image: react
+    },
+    {
+        name: 'Astro',
+        image: astro
+    },
+    {
+        name: 'Spring',
+        image: spring
+    },
+    {
+        name: '.Net Core',
+        image: netcore
+    },
+    {
+        name: 'Java',
+        image: java
+    },
+    {
+        name: 'Python',
+        image: python
+    },
+    {
+        name: 'MySQL',
+        image: mysql
+    },
+    {
+        name: 'PostgreSQL',
+        image: postgresql
+    },
+    {
+        name: 'SQL Server',
+        image: sqlserver
+    },
+    {
+        name: 'Git',
+        image: git
+    },
+    {
+        name: 'GitHub',
+        image: github
+    },
+    {
+        name: 'Figma',
+        image: figma
+    },
+    {
+        name: 'Power BI',
+        image: powerbi
+    },
+    {
+        name: 'VSCode',
+        image: vscode
+    },
+    {
+        name: 'IntelliJ',
+        image: intellij
+    },
+    {
+        name: 'Windsurf',
+        image: windsurf
+    }
+]
+---
+<section class="w-full flex flex-col justify-center items-center text-white bg-[#1b2735] py-10">
+    <div class="w-7xl flex flex-col justify-center items-center">
+        <h1 class="text-3xl font-bold pb-6">Conocimientos</h1>
+        <div class="flex flex-wrap justify-center items-center gap-4">
+            {skills.map((skill) => (
+                <div class="flex flex-col justify-center items-center rounded-lg border-2 gap-2 p-4 hover:scale-105 transition duration-300">
+                    <img src={skill.image.src} alt={skill.name} class="w-20 h-20" />
+                    <h2>{skill.name}</h2>
+                </div>
+            ))}
+        </div>
+    </div>
+</section>
