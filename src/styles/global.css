@@ -5,7 +5,7 @@
     --font-ledger: 'Ledger', serif;
     --font-platypi: 'Platypi', serif;
     --font-poppins: 'Poppins', sans-serif;
-    --bg-gradient: linear-gradient(to right bottom, #101b27, #111c28, #131e28, #141f29, #162029);
+    --bg-starts: linear-gradient(to right bottom, #101b27, #111c28, #131e28, #141f29, #162029);
     --bg-gradient-radial: linear-gradient(ellipse at bottom, #161f2b 0%, #090A0F 100%);
 }
 
@@ -20,11 +20,10 @@
         font-family: var(--font-poppins);
     }
     main {
-        background-image: var(--bg-gradient);
+        background-image: var(--bg-starts);
         background-size: cover;
         background-repeat: no-repeat;
     }
-
     .education {
         background-image: var(--bg-gradient-radial);
         background-size: cover;

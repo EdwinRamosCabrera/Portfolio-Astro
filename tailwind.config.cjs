@@ -6,5 +6,5 @@ module.exports = {
         color: {},
       },
     },
-    plugins: [],
+    plugins: [tailwindcss],
   }
